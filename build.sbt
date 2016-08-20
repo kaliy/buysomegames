@@ -4,6 +4,11 @@ version := "1.0"
 
 scalaVersion := "2.11.8"
 
+resolvers ++= Seq(
+  Resolver.sonatypeRepo("releases"),
+  "Twitter Maven" at "https://maven.twttr.com"
+)
+
 lazy val versions = new {
   val finatra = "2.2.0"
   val logback = "1.1.7"
