@@ -12,14 +12,18 @@ resolvers ++= Seq(
 lazy val versions = new {
   val finatra = "2.2.0"
   val logback = "1.1.7"
-  var scalatest = "2.2.6"
-  var guice = "4.1.0"
+  val reactivemongo = "0.11.14"
+  val specs2 = "3.7"
+  val scalatest = "2.2.6"
+  val guice = "4.1.0"
+  val mongoscaladriver = "1.1.1"
 }
 
 libraryDependencies ++= Seq(
   "com.twitter" %% "finatra-http" % versions.finatra,
   "com.twitter" %% "finatra-slf4j" % versions.finatra,
   "ch.qos.logback" % "logback-classic" % versions.logback,
+  "org.mongodb.scala" %% "mongo-scala-driver" % versions.mongoscaladriver,
 
   "com.twitter" %% "finatra-http" % versions.finatra % "test",
   "com.twitter" %% "finatra-jackson" % versions.finatra % "test",
@@ -37,5 +41,5 @@ libraryDependencies ++= Seq(
   "com.twitter" %% "inject-modules" % versions.finatra % "test" classifier "tests",
 
   "org.scalatest" %% "scalatest" % versions.scalatest % "test",
-  "org.specs2" %% "specs2" % "3.7" % "test"
+  "org.specs2" %% "specs2" % versions.specs2 % "test"
 )
