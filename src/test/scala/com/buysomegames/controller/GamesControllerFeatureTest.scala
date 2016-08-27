@@ -32,5 +32,6 @@ class GamesControllerFeatureTest extends FeatureTest {
     Await.result(collection.drop().head(), Duration(10, TimeUnit.SECONDS))
     Await.result(collection.insertMany(lines.map(json => Document(json)).toSeq).toFuture(), Duration(10, TimeUnit.SECONDS))
     val data = Await.result(collection.find().toFuture(), Duration(10, TimeUnit.SECONDS))
+    Console.err.println("topkek " + data.size)
   }
 }
