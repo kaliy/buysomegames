@@ -17,21 +17,19 @@ class GamesControllerFeatureTest extends FeatureTest {
   override protected def server: EmbeddedHttpServer = new EmbeddedHttpServer(twitterServer = new BuysomegamesServer)
 
   "/games endpoint" should {
-    "respond with hello world" in {
+    "respond with information about all games" in {
       server.httpGet(
         path = "/games",
         andExpect = Status.Ok,
-        withJsonBody = """{"hello":"world"}"""
+        withJsonBody = Source.fromInputStream(getClass.getResourceAsStream("/controller/games/games.json")).getLines.mkString
       )
     }
   }
 
   override protected def beforeEach(): Unit = {
-    val collection = injector.instance[MongoDatabase].getCollection("test")
+    val collection = injector.instance[MongoDatabase].getCollection("games")
     val lines = Source.fromInputStream(getClass.getResourceAsStream("/data/games.json")).getLines
     Await.result(collection.drop().head(), Duration(10, TimeUnit.SECONDS))
     Await.result(collection.insertMany(lines.map(json => Document(json)).toSeq).toFuture(), Duration(10, TimeUnit.SECONDS))
-    val data = Await.result(collection.find().toFuture(), Duration(10, TimeUnit.SECONDS))
-    Console.err.println("topkek " + data.size)
   }
 }
