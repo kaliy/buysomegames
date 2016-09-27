@@ -17,6 +17,7 @@ lazy val versions = new {
   val scalatest = "2.2.6"
   val guice = "4.1.0"
   val mongoscaladriver = "1.1.1"
+  val twitterbijection = "0.9.2"
 }
 
 libraryDependencies ++= Seq(
@@ -24,6 +25,8 @@ libraryDependencies ++= Seq(
   "com.twitter" %% "finatra-slf4j" % versions.finatra,
   "ch.qos.logback" % "logback-classic" % versions.logback,
   "org.mongodb.scala" %% "mongo-scala-driver" % versions.mongoscaladriver,
+  "com.twitter" %% "bijection-core" % versions.twitterbijection,
+  "com.twitter" %% "bijection-util" % versions.twitterbijection,
 
   "com.twitter" %% "finatra-http" % versions.finatra % "test",
   "com.twitter" %% "finatra-jackson" % versions.finatra % "test",
