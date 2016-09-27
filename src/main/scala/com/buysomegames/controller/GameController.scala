@@ -1,7 +1,7 @@
 package com.buysomegames.controller
 
-import com.buysomegames.model.Game
-import com.buysomegames.repository.GameRepository
+import com.buysomegames.controller.response.GamesResponse
+import com.buysomegames.service.GameService
 import com.google.inject.Inject
 import com.twitter.bijection.twitter_util.UtilBijections._
 import com.twitter.finagle.http.Request
@@ -13,14 +13,11 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Future => ScalaFuture}
 
 class GameController @Inject()(
-                                gameRepository: GameRepository,
+                                gameService: GameService,
                                 response: ResponseBuilder
                               ) extends Controller {
   get("/games") { request: Request =>
-    val games: ScalaFuture[Map[String, Iterable[Game]]] = gameRepository.findAllGames.map(games => Map("games" -> games))
-    twitter2ScalaFuture[Map[String, Iterable[Game]]].invert(games)
+    val games: ScalaFuture[GamesResponse] = gameService.handleFindAllGames
+    twitter2ScalaFuture[GamesResponse].invert(games)
   }
-
-  class GamesResponse(val games: Iterable[Game])
-
 }
