@@ -10,11 +10,11 @@ resolvers ++= Seq(
 )
 
 lazy val versions = new {
-  val finatra = "2.2.0"
+  val finatra = "2.7.0"
   val logback = "1.1.7"
   val reactivemongo = "0.11.14"
   val specs2 = "3.7"
-  val scalatest = "2.2.6"
+  val scalatest = "3.0.0"
   val guice = "4.1.0"
   val mongoscaladriver = "1.1.1"
   val twitterbijection = "0.9.2"
