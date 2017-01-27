@@ -16,9 +16,11 @@ lazy val versions = new {
   val specs2 = "3.7"
   val scalatest = "3.0.0"
   val guice = "4.1.0"
-  val mongoscaladriver = "1.1.1"
+  val mongoscaladriver = "1.2.1"
   val twitterbijection = "0.9.2"
 }
+
+parallelExecution := false
 
 libraryDependencies ++= Seq(
   "com.twitter" %% "finatra-http" % versions.finatra,
