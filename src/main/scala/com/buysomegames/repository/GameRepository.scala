@@ -11,18 +11,11 @@ class GameRepository @Inject()(
                               ) {
   def findAllGames: Future[Iterable[Game]] = {
     val collection = db.getCollection("games")
-    val documents = collection.find()
-    val h = documents.transform(d => d, t => t)
-    h.map(doc =>
+    collection.find().map(doc =>
       new Game(
         name = doc.get("name").get.asString().getValue,
         description = doc.get("description").get.asString().getValue
       )
     ).toFuture()
-    //    val k = for {
-    //      doc <- documents
-    //    } yield doc
-    //
-    //    )
   }
 }
