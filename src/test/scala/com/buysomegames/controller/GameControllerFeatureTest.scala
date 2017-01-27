@@ -7,7 +7,7 @@ import com.twitter.finagle.http.Status
 import com.twitter.finatra.http.EmbeddedHttpServer
 import com.twitter.inject.server.FeatureTest
 
-class GamesControllerFeatureTest extends FeatureTest with FreshDatabase {
+class GameControllerFeatureTest extends FeatureTest with FreshDatabase {
   override protected def server: EmbeddedHttpServer = new EmbeddedHttpServer(new BuysomegamesServer)
 
   "/games endpoint" should {
