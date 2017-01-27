@@ -1,0 +1,20 @@
+{
+  "platforms": [
+    {
+      "id": "PS1",
+      "name": "Playstation 1"
+    },
+    {
+      "id": "PS2",
+      "name": "Playstation 2"
+    },
+    {
+      "id": "PS3",
+      "name": "Playstation 3"
+    },
+    {
+      "id": "PS4",
+      "name": "Playstation 4"
+    }
+  ]
+}

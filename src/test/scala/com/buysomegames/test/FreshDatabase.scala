@@ -11,9 +11,14 @@ import scala.io.Source
 
 trait FreshDatabase extends com.twitter.inject.IntegrationTest {
   override protected def beforeEach(): Unit = {
-    val collection = injector.instance[MongoDatabase].getCollection("games")
-    val lines = Source.fromInputStream(getClass.getResourceAsStream("/data/games.json")).getLines
-    Await.result(collection.drop().head(), Duration(10, TimeUnit.SECONDS))
-    Await.result(collection.insertMany(lines.map(json => Document(json)).toSeq).toFuture(), Duration(10, TimeUnit.SECONDS))
+    insertDataFromResourceIntoCollection("/data/games.json", "games")
+    insertDataFromResourceIntoCollection("/data/platforms.json", "platforms")
+  }
+
+  private def insertDataFromResourceIntoCollection(json: String, collection: String): Unit = {
+    val mongoCollection = injector.instance[MongoDatabase].getCollection(collection)
+    val lines = Source.fromInputStream(getClass.getResourceAsStream(json)).getLines
+    Await.result(mongoCollection.drop().head(), Duration(10, TimeUnit.SECONDS))
+    Await.result(mongoCollection.insertMany(lines.map(json => Document(json)).toSeq).toFuture(), Duration(10, TimeUnit.SECONDS))
   }
 }
