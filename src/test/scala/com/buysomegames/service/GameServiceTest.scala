@@ -7,7 +7,7 @@ import com.buysomegames.model.Game
 import com.buysomegames.repository.GameRepository
 import org.mockito.Mockito
 import org.scalatest.Matchers._
-import org.scalatest.mock.MockitoSugar
+import org.scalatest.mockito.MockitoSugar
 import org.scalatest.{BeforeAndAfterEach, WordSpec}
 
 import scala.concurrent.duration.Duration
