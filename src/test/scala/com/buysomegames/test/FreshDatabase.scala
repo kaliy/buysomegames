@@ -13,6 +13,7 @@ trait FreshDatabase extends com.twitter.inject.IntegrationTest {
   override protected def beforeEach(): Unit = {
     insertDataFromResourceIntoCollection("/data/games.json", "games")
     insertDataFromResourceIntoCollection("/data/platforms.json", "platforms")
+    insertDataFromResourceIntoCollection("/data/game_editions.json", "game_editions")
   }
 
   private def insertDataFromResourceIntoCollection(json: String, collection: String): Unit = {
