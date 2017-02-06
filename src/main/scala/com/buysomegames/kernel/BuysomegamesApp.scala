@@ -1,6 +1,6 @@
 package com.buysomegames.kernel
 
-import com.buysomegames.controller.{GameController, PlatformController}
+import com.buysomegames.controller.{GameController, GameEditionController, PlatformController}
 import com.google.inject.Module
 import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.routing.HttpRouter
@@ -19,5 +19,6 @@ class BuysomegamesServer extends HttpServer {
     router
       .add[GameController]
       .add[PlatformController]
+      .add[GameEditionController]
   }
 }
