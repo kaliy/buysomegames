@@ -10,6 +10,8 @@ object BuysomegamesApp extends BuysomegamesServer
 class BuysomegamesServer extends HttpServer {
   override protected def defaultFinatraHttpPort: String = ":10666"
 
+  override protected def jacksonModule: Module = BuysomegamesJacksonModule
+
   override protected def modules: Seq[Module] = Seq(
     MongoConnectionModule
   )
