@@ -15,7 +15,7 @@ class GameEditionControllerFeatureTest extends FeatureTest with FreshDatabase {
       server.httpGet(
         path = "/game_editions",
         andExpect = Status.Ok,
-        withJsonBody = readResource("/controller/games/games.json")
+        withJsonBody = readResource("/controller/game_editions/game_editions.json")
       )
     }
   }

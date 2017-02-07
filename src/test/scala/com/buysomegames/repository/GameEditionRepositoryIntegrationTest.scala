@@ -25,9 +25,10 @@ class GameEditionRepositoryIntegrationTest extends IntegrationTest with FreshDat
       val uncharted = getAllGameEditionsAndExtractUncharted
       uncharted.name should be("Uncharted: Drake's Fortune")
     }
-    "map GameEdition.gameId" in {
+    "map GameEdition.game with ID and name from the database" in {
       val uncharted = getAllGameEditionsAndExtractUncharted
-      uncharted.gameId should be(new ObjectId("57c28e830868729b8638fe5c"))
+      uncharted.game.id should be(new ObjectId("57c28e830868729b8638fe5c"))
+      uncharted.game.name should be("Uncharted: Drake’s Fortune")
     }
     "map GameEdition.name as test entity" in {
       val uncharted = getAllGameEditionsAndExtractUncharted
