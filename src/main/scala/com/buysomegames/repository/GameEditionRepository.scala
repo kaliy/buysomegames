@@ -14,20 +14,18 @@ class GameEditionRepository @Inject()(
                                      ) {
   def findAllGameEditions: Future[Iterable[GameEdition]] = {
     val collection = db.getCollection("game_editions")
-    collection.find().map(new GameEditionMapper().map(_)).toFuture()
+    collection.find().map(mapGameEdition).toFuture()
   }
 
-  private class GameEditionMapper {
-    def map(doc: Document): GameEdition = {
-      val edition = new GameEdition(
-        id = doc.getObjectId("_id"),
-        name = doc.get("name").get.asString().getValue,
-        region = doc.get("region").get.asString.getValue,
-        platform = new Platform(id = "PS3", name = "changeit"),
-        gameId = doc.getObjectId("game_id"),
-        releaseDate = doc.getDate("release_date").toInstant.atZone(ZoneId.of("UTC")).toLocalDate
-      )
-      edition
-    }
+  private def mapGameEdition(doc: Document): GameEdition = {
+    val edition = new GameEdition(
+      id = doc.getObjectId("_id"),
+      name = doc.get("name").get.asString().getValue,
+      region = doc.get("region").get.asString.getValue,
+      platform = new Platform(id = "PS3", name = "changeit"),
+      gameId = doc.getObjectId("game_id"),
+      releaseDate = doc.getDate("release_date").toInstant.atZone(ZoneId.of("UTC")).toLocalDate
+    )
+    edition
   }
 }
