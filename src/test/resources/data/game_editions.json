@@ -1,3 +1,0 @@
-{"_id":{"$oid":"5894944f5591d01832058cda"},"game":{"_id":{"$oid":"57c28e830868729b8638fe5c"},"name":"Uncharted:Drake’s Fortune"},"platform":"PS3","region":"US","release_date":{"$date":"2007-11-16T00:00:00.000Z"},"name":"Uncharted:Drake's Fortune"}
-{"_id":{"$oid":"5894944f5591d01832058cdb"},"game":{"_id":{"$oid":"57c28e830868729b8638fe5c"},"name":"Uncharted:Drake’s Fortune"},"platform":"PS3","region":"EU","release_date":{"$date":"2007-12-06T00:00:00.000Z"},"name":"Uncharted:Drake's Fortune"}
-{"_id":{"$oid":"5894944f5591d01832058cdc"},"game":{"_id":{"$oid":"57c28e830868729b8638fe5c"},"name":"Uncharted:Drake’s Fortune"},"platform":"PS3","region":"EU","release_date":{"$date":"2008-08-01T00:00:00.000Z"},"name":"Uncharted:Drake's Fortune (Platinum)"}
