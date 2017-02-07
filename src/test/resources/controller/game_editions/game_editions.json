@@ -1,0 +1,43 @@
+{
+  "game_editions": [
+    {
+      "id": "5894944f5591d01832058cda",
+      "region": "US",
+      "name": "Uncharted: Drake's Fortune",
+      "release_date": "2007-11-16",
+      "platform": {
+        "id": "PS3",
+        "name": "changeit"
+      },
+      "game": {
+        "id": "57c28e830868729b8638fe5c"
+      }
+    },
+    {
+      "id": "5894944f5591d01832058cdb",
+      "region": "EU",
+      "name": "Uncharted: Drake's Fortune",
+      "release_date": "2007-12-06",
+      "platform": {
+        "id": "PS3",
+        "name": "changeit"
+      },
+      "game": {
+        "id": "57c28e830868729b8638fe5c"
+      }
+    },
+    {
+      "id": "5894944f5591d01832058cdc",
+      "region": "EU",
+      "name": "Uncharted: Drake's Fortune (Platinum)",
+      "release_date": "2008-08-01",
+      "platform": {
+        "id": "PS3",
+        "name": "changeit"
+      },
+      "game": {
+        "id": "57c28e830868729b8638fe5c"
+      }
+    }
+  ]
+}
